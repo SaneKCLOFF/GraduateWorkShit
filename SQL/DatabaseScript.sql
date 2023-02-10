@@ -1,0 +1,2 @@
+CREATE DATABASE SalesServicesDataBase
+GO SalesServicesDataBase
