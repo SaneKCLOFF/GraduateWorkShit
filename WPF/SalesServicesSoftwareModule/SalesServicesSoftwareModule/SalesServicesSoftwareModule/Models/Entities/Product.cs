@@ -25,7 +25,7 @@ namespace SalesServicesSoftwareModule.Models.Entities
         public string CorrectImagePath 
         { 
             get => (_correctImagePath==null || _correctImagePath==String.Empty) 
-                ? @"\Resources\Images\EmptyImage.jpg" : @$"\Resoruces\Images\{Image}";
+                ? @"\Resources\DatabasePictures\EmptyImage.jpg" : @$"\Resoruces\DatabasePictures\{Image}";
         }
         #endregion
     }
