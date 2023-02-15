@@ -9,6 +9,6 @@ namespace SalesServicesSoftwareModule.Models.Entities
     internal class ProductCategory
     {
         public int ProductCategoriesId { get; set; }
-        public string Title { get; set; }
+        public string Title { get; set; } = null!;
     }
 }

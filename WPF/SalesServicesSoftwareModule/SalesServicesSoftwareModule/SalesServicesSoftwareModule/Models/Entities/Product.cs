@@ -10,13 +10,23 @@ namespace SalesServicesSoftwareModule.Models.Entities
     {
         public int ProductId { get; set; }
         public int ProductCategoryId { get; set; }
-        public ProductCategory ProductCategory { get; set; }
-        public string Title { get; set; }
-        public string Image { get; set; }
-        public string Description { get; set; }
+        public ProductCategory ProductCategory { get; set; } = null!;
+        public string Title { get; set; } = null!;
+        public string Image { get; set; } = null!;
+        public string Description { get; set; } = null!;
         public decimal Cost { get; set; }
         public int CountInStock { get; set; }
         public int Discount { get; set; }
         public DateTime DateOfAdd { get; set; }
+        
+
+        #region Custom Fields
+        private string _correctImagePath = null!;
+        public string CorrectImagePath 
+        { 
+            get => (_correctImagePath==null || _correctImagePath==String.Empty) 
+                ? @"\Resources\Images\EmptyImage.jpg" : @$"\Resoruces\Images\{Image}";
+        }
+        #endregion
     }
 }
