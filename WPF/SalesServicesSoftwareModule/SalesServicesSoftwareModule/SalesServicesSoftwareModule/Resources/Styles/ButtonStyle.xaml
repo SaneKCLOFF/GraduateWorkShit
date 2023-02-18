@@ -9,18 +9,36 @@
     <Style x:Key="ButtonStyle" TargetType="Button">
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Height" Value="25"/>
+        <Setter Property="FontSize" Value="14"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Background="{StaticResource Color}"
-                            CornerRadius="4">
+                            CornerRadius="4"
+                            x:Name="Border">
                         <ContentPresenter Content="{TemplateBinding Content}"
                                           HorizontalAlignment="Center"
                                           VerticalAlignment="Center"
-                                          />
+                                          x:Name="ContentPresenter"/>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource ColorActive}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource ColorActive}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="FontSize" Value="16"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="FontSize" Value="16"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

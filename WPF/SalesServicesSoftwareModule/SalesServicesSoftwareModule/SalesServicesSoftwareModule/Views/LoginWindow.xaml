@@ -13,6 +13,10 @@
     <TabControl Style="{StaticResource TabControl}" HorizontalAlignment="Center">
         <TabItem Header="Авторизация" Style="{StaticResource TabItem}">
             <StackPanel VerticalAlignment="Center">
+                <Image Source="\Resources\Images\EmptyImage.jpg"
+                       Stretch="Uniform"
+                       Height="200"
+                       Margin="0,0,0,10"/>
                 <TextBlock Text="Логин" HorizontalAlignment="Center"
                            Style="{StaticResource TextBlock}"/>
                 <TextBox Style="{StaticResource TextBoxStyle}"/>
