@@ -5,12 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalesServicesSoftwareModule.Views"
         mc:Ignorable="d"
-        Title="" Height="450" Width="350"
+        Title="Окно входа" Height="450" Width="350"
         Background="{StaticResource BackgroundLight}"
-        FontFamily="Cascadia Code">
-    <TabControl Style="{StaticResource TabControl}">
+        FontFamily="Cascadia Code"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <TabControl Style="{StaticResource TabControl}" HorizontalAlignment="Center">
         <TabItem Header="Авторизация" Style="{StaticResource TabItem}">
-            
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Логин" HorizontalAlignment="Center"
+                           Style="{StaticResource TextBlock}"/>
+                <TextBox Style="{StaticResource TextBoxStyle}"/>
+                <TextBlock Text="Пароль" HorizontalAlignment="Center"
+                           Style="{StaticResource TextBlock}"/>
+                <TextBox Style="{StaticResource TextBoxStyle}"/>
+                <Button Style="{StaticResource ButtonStyle}"
+                        Width="90"
+                        Content="Войти"/>
+
+            </StackPanel>
         </TabItem>
         <TabItem Header="Регистрация" Style="{StaticResource TabItem}">
 
