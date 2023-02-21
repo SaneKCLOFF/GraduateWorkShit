@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalesServicesSoftwareModule.Views"
         mc:Ignorable="d"
-        Title="Окно входа" Height="450" Width="350"
+        Title="Окно входа" Height="600" Width="400"
         Background="{StaticResource BackgroundLight}"
         FontFamily="Cascadia Code"
         ResizeMode="NoResize"
@@ -25,12 +25,49 @@
                 <TextBox Style="{StaticResource TextBoxStyle}"/>
                 <Button Style="{StaticResource ButtonStyle}"
                         Width="90"
-                        Content="Войти"/>
+                        Content="Войти"
+                        Margin="0,20,0,0"/>
 
             </StackPanel>
         </TabItem>
         <TabItem Header="Регистрация" Style="{StaticResource TabItem}">
-
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Логин"
+                           Style="{StaticResource TextBlock}"
+                           HorizontalAlignment="Center"/>
+                <TextBox Style="{StaticResource TextBoxStyle}"/>
+                <TextBlock Text="Пароль"
+                           Style="{StaticResource TextBlock}"
+                           HorizontalAlignment="Center"/>
+                <TextBox Style="{StaticResource TextBoxStyle}"/>
+                <TextBlock Text="Фамилия"
+                           Style="{StaticResource TextBlock}"
+                           HorizontalAlignment="Center"/>
+                <TextBox Style="{StaticResource TextBoxStyle}"/>
+                <TextBlock Text="Имя"
+                           Style="{StaticResource TextBlock}"
+                           HorizontalAlignment="Center"/>
+                <TextBox Style="{StaticResource TextBoxStyle}"/>
+                <TextBlock Text="Отчество"
+                           Style="{StaticResource TextBlock}"
+                           HorizontalAlignment="Center"/>
+                <TextBox Style="{StaticResource TextBoxStyle}"/>
+                <TextBlock Text="Дата рождения"
+                           Style="{StaticResource TextBlock}"
+                           HorizontalAlignment="Center"/>
+                <TextBox Style="{StaticResource TextBoxStyle}"/>
+                <TextBlock Text="Телефон"
+                           Style="{StaticResource TextBlock}"
+                           HorizontalAlignment="Center"/>
+                <TextBox Style="{StaticResource TextBoxStyle}"/>
+                <TextBlock Text="Email"
+                           Style="{StaticResource TextBlock}"
+                           HorizontalAlignment="Center"/>
+                <TextBox Style="{StaticResource TextBoxStyle}"/>
+                <Button Style="{StaticResource ButtonStyle}"
+                        Content="Зарегистрировать"
+                        Margin="0,20,0,0"/>
+            </StackPanel>
         </TabItem>
     </TabControl>
 </Window>

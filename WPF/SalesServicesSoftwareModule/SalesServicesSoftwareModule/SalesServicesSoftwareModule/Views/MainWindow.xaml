@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalesServicesSoftwareModule.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Роль: ФИО" Height="450" Width="800"
+        Background="{StaticResource BackgroundLight}"
+        FontFamily="Cascadia Code"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         
     </Grid>
