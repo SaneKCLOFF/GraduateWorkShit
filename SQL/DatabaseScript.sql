@@ -98,7 +98,7 @@ VALUES
 
 INSERT INTO Users(LastName,FirstName,MiddleName,DateOfBirth,[Login],[Password],RoleId,Phone,Email,DateOfRegister,NumberOfPurchases,NumberOfServices)
 VALUES
-()
+('Аксёнов','Александр','Игоревич','20/03/2003','admin','admin123',1,'4356345','gavno@mail.ru','01/01/2020',0,0)
 
 INSERT INTO ProductCategories(Title)
 VALUES
