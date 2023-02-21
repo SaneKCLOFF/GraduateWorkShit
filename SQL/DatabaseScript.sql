@@ -96,6 +96,10 @@ VALUES
 ('В процессе'),
 ('Выполнен')
 
+INSERT INTO Users(LastName,FirstName,MiddleName,DateOfBirth,[Login],[Password],RoleId,Phone,Email,DateOfRegister,NumberOfPurchases,NumberOfServices)
+VALUES
+()
+
 INSERT INTO ProductCategories(Title)
 VALUES
 ('Бухгалтерия'),

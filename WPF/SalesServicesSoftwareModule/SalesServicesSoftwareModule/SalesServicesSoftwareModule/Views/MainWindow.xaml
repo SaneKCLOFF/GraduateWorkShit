@@ -11,6 +11,28 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".08*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0"
+                Background="{StaticResource BackgroundDark}">
+            <StackPanel Orientation="Vertical">
+                <Button Style="{StaticResource SideBarButton}">
+                    <Button.Content>
+                        <Image Source="\Resources\Images\EmptyImage.jpg"/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Border>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".15*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <ListView Grid.Row="1">
+                <
+            </ListView>
+        </Grid>
     </Grid>
 </Window>
