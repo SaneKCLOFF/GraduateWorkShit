@@ -1,6 +1,5 @@
 CREATE DATABASE SalesServicesDataBase
-GO SalesServicesDataBase
-
+GO 
 USE SalesServicesDataBase
 GO
 
@@ -89,7 +88,6 @@ INSERT INTO Roles(Title)
 VALUES
 ('Администратор'),
 ('Пользователь'),
-('Кладовщик'),
 ('Редактор')
 
 INSERT INTO Statuses(Title)
