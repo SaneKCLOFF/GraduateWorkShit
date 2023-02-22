@@ -17,5 +17,6 @@ namespace GraduateSchedule.Models.Entities
         public virtual Group Group { get; set; } = null!;
         public virtual Subject Subject { get; set; } = null!;
         public virtual Timetable Timetable { get; set; } = null!;
+        // Добавить пункт с датой на которую назначено это занятие
     }
 }
