@@ -1,5 +1,5 @@
-CREATE DATABASE ScheduleDataBase
-GO
+--CREATE DATABASE ScheduleDataBase
+--GO
 USE ScheduleDataBase
 GO
 
@@ -58,3 +58,12 @@ CREATE TABLE Classes
 	TimetableID INT REFERENCES Timetable(ID) NOT NULL,
 	ClassTypeID INT REFERENCES ClassTypes(ID) NOT NULL,
 )
+
+--DROP TABLE Classes
+--DROP TABLE ClassTypes
+--DROP TABLE Timetable
+--DROP TABLE Cabinets
+--DROP TABLE Groups
+--DROP TABLE Subjects
+--DROP TABLE Teachers
+--DROP TABLE Specialties
