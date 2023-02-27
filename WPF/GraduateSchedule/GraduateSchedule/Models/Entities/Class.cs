@@ -59,4 +59,4 @@ namespace GraduateSchedule.Models.Entities
         }
         #endregion
     }
-}
+}//
