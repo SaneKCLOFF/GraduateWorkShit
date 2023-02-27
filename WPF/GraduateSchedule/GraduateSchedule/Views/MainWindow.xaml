@@ -20,8 +20,45 @@
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   ScrollViewer.VerticalScrollBarVisibility="Disabled"
                   BorderThickness="0"
-                  Grid.Row="1">
-            
+                  Grid.Row="1"
+                  ItemsSource="{Binding Classes}">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListViewItem">
+                                <Border BorderBrush="Red" CornerRadius="8" BorderThickness="1"
+                                        Margin="5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Text="{Binding CorrectDateOfClass}"
+                                                       HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                        <Grid Grid.Column="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="{Binding TitleNumber}"
+                                                           HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding ClassTeacher}"
+                                                       HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding Timetable.Time}"
+                                                       HorizontalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
     </Grid>
 </Window>

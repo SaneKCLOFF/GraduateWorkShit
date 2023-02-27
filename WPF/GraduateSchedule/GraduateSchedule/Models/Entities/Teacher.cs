@@ -16,5 +16,12 @@ namespace GraduateSchedule.Models.Entities
         public string MiddleName { get; set; } = null!;
 
         public virtual ICollection<Subject> Subjects { get; set; }
+
+        #region Custom fields and properties
+        public string FullName
+        {
+            get => $"{LastName} {FirstName[0]}. {MiddleName[0]}.";
+        }
+        #endregion
     }
 }

@@ -24,7 +24,7 @@ namespace GraduateSchedule.ViewModels
         public List<Class> Classes
         {
             get => _classes;
-            set => _classes = value; 
+            set => _classes = value;
         }
         public DateTime dateTime { get; set; }
 
@@ -33,22 +33,22 @@ namespace GraduateSchedule.ViewModels
         #region Methods
         private List<Class> GetClasses()
         {
-            using (ApplicationDBContext context = new())
+            using (ApplicationDbContext context = new())
             {
                 return context
                     .Classes
-                    .Include(c=>c.Cabinet)
-                    .Include(ct=>ct.ClassType)
-                    .Include(g=>g.Group)
-                        .ThenInclude(sp=>sp.Specialty)
-                    .Include(s=>s.Subject)
-                        .ThenInclude(t=>t.Teacher)
-                    .Include(t=>t.Timetable)
+                    .Include(c => c.Cabinet)
+                    .Include(ct => ct.ClassType)
+                    .Include(g => g.Group)
+                        .ThenInclude(sp => sp.Specialty)
+                    .Include(s => s.Subject)
+                        .ThenInclude(t => t.Teacher)
+                    .Include(t => t.Timetable)
                     .ToList();
             }
         }
         #endregion
-    } 
+    }
     // Сделать аналогию со страницами?
     // Вывод по 7 записей, или 6 не включая седьмой день
     // Как обозначать дни?

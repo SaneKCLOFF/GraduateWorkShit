@@ -11,6 +11,7 @@ namespace GraduateSchedule.Models.Entities
         }
 
         public int Id { get; set; }
+        public string Title { get; set; } = null!;
         public int SpecialtyId { get; set; }
         public DateTime DateOfEnrollment { get; set; }
 

@@ -6,13 +6,13 @@ using GraduateSchedule.Models.Entities;
 
 namespace GraduateSchedule.Models
 {
-    public partial class ApplicationDBContext : DbContext
+    public partial class ApplicationDbContext : DbContext
     {
-        public ApplicationDBContext()
+        public ApplicationDbContext()
         {
         }
 
-        public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
@@ -30,7 +30,7 @@ namespace GraduateSchedule.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=ScheduleDataBase;Trusted_Connection=true");
+                optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS; Database=ScheduleDataBase; Trusted_Connection=true;");
             }
         }
 
@@ -47,37 +47,39 @@ namespace GraduateSchedule.Models
 
                 entity.Property(e => e.ClassTypeId).HasColumnName("ClassTypeID");
 
+                entity.Property(e => e.DateOfClass).HasColumnType("date");
+
                 entity.Property(e => e.TimetableId).HasColumnName("TimetableID");
 
                 entity.HasOne(d => d.Cabinet)
                     .WithMany(p => p.Classes)
                     .HasForeignKey(d => d.CabinetId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Classes__Cabinet__5AEE82B9");
+                    .HasConstraintName("FK__Classes__Cabinet__48CFD27E");
 
                 entity.HasOne(d => d.ClassType)
                     .WithMany(p => p.Classes)
                     .HasForeignKey(d => d.ClassTypeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Classes__ClassTy__5CD6CB2B");
+                    .HasConstraintName("FK__Classes__ClassTy__4AB81AF0");
 
                 entity.HasOne(d => d.Group)
                     .WithMany(p => p.Classes)
                     .HasForeignKey(d => d.GroupId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Classes__GroupId__59FA5E80");
+                    .HasConstraintName("FK__Classes__GroupId__47DBAE45");
 
                 entity.HasOne(d => d.Subject)
                     .WithMany(p => p.Classes)
                     .HasForeignKey(d => d.SubjectId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Classes__Subject__59063A47");
+                    .HasConstraintName("FK__Classes__Subject__46E78A0C");
 
                 entity.HasOne(d => d.Timetable)
                     .WithMany(p => p.Classes)
                     .HasForeignKey(d => d.TimetableId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Classes__Timetab__5BE2A6F2");
+                    .HasConstraintName("FK__Classes__Timetab__49C3F6B7");
             });
 
             modelBuilder.Entity<ClassType>(entity =>
@@ -95,11 +97,15 @@ namespace GraduateSchedule.Models
 
                 entity.Property(e => e.DateOfEnrollment).HasColumnType("date");
 
+                entity.Property(e => e.Title)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
                 entity.HasOne(d => d.Specialty)
                     .WithMany(p => p.Groups)
                     .HasForeignKey(d => d.SpecialtyId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Groups__Specialt__5070F446");
+                    .HasConstraintName("FK__Groups__Specialt__3E52440B");
             });
 
             modelBuilder.Entity<Specialty>(entity =>
@@ -122,7 +128,7 @@ namespace GraduateSchedule.Models
                 entity.HasOne(d => d.Teacher)
                     .WithMany(p => p.Subjects)
                     .HasForeignKey(d => d.TeacherId)
-                    .HasConstraintName("FK__Subjects__Teache__4D94879B");
+                    .HasConstraintName("FK__Subjects__Teache__3B75D760");
             });
 
             modelBuilder.Entity<Teacher>(entity =>
@@ -149,7 +155,7 @@ namespace GraduateSchedule.Models
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Time)
-                    .HasMaxLength(10)
+                    .HasMaxLength(11)
                     .IsUnicode(false);
             });
 
