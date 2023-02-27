@@ -1,8 +1,9 @@
---CREATE DATABASE ScheduleDataBase
---GO
+CREATE DATABASE ScheduleDataBase
+GO
 USE ScheduleDataBase
 GO
 
+--СОЗДАНИЕ ДАЗ БАННЫХ
 CREATE TABLE Specialties
 (
 	ID INT IDENTITY PRIMARY KEY NOT NULL,
@@ -27,6 +28,7 @@ CREATE TABLE Subjects
 CREATE TABLE Groups
 (
 	ID INT IDENTITY PRIMARY KEY NOT NULL,
+	Title VARCHAR(50) NOT NULL,
 	SpecialtyId INT REFERENCES Specialties(ID) NOT NULL,
 	DateOfEnrollment DATE NOT NULL,
 )
@@ -40,7 +42,7 @@ CREATE TABLE Cabinets
 CREATE TABLE Timetable
 (
 	ID INT IDENTITY PRIMARY KEY NOT NULL,
-	[Time] VARCHAR(10) NOT NULL,
+	[Time] VARCHAR(11) NOT NULL,
 )
 
 CREATE TABLE ClassTypes
@@ -57,7 +59,86 @@ CREATE TABLE Classes
 	CabinetId INT REFERENCES Cabinets(ID) NOT NULL,
 	TimetableID INT REFERENCES Timetable(ID) NOT NULL,
 	ClassTypeID INT REFERENCES ClassTypes(ID) NOT NULL,
+	DateOfClass DATE NOT NULL
 )
+GO
+
+INSERT INTO [dbo].[Specialties]
+           ([Title])
+     VALUES
+           ('Информационные системы и программирование'),
+		   ('Какая-то специальность')
+GO
+
+INSERT INTO [dbo].[Teachers]
+           ([LastName]
+           ,[FirstName]
+           ,[MiddleName])
+     VALUES
+           ('Лукьянов', 'Иван', 'Львович'),
+		   ('Попова', 'Виктория', 'Александровна'),
+		   ('Дементьева', 'Алёна', 'Фёдоровна')
+GO
+
+INSERT INTO [dbo].[Subjects]
+           ([Title]
+           ,[TeacherId])
+     VALUES
+           ('Математика',1),
+		   ('Русский язык',2),
+		   ('Литература',3),
+		   ('Физика',1),
+		   ('Английский язык',2),
+		   ('Химия',3)
+GO
+
+INSERT INTO [dbo].[Groups]
+           ([Title]
+		   ,[SpecialtyId]
+           ,[DateOfEnrollment])
+     VALUES
+           ('ИСП',1,'01/09/2019')
+GO
+
+INSERT INTO [dbo].[Cabinets]
+           ([Number])
+     VALUES
+           (232),
+		   (224),
+		   (231),
+		   (234)
+GO
+
+INSERT INTO [dbo].[Timetable]
+           ([Time])
+     VALUES
+           ('8:00-9:20'),
+		   ('9:30-10:50'),
+		   ('11:00-12:20')
+GO
+
+INSERT INTO [dbo].[ClassTypes]
+           ([Title])
+     VALUES
+           ('Практика'),
+		   ('Лекция')
+GO
+
+INSERT INTO [dbo].[Classes]
+           ([SubjectId]
+           ,[GroupId]
+           ,[CabinetId]
+           ,[TimetableID]
+           ,[ClassTypeID]
+		   ,[DateOfClass])
+     VALUES
+           (1,1,2,1,2,'27/02/2023'),
+		   (2,1,2,2,2,'27/02/2023'),
+		   (4,1,2,3,2,'27/02/2023')
+
+GO
+
+
 
 --DROP TABLE Classes
 --DROP TABLE ClassTypes
